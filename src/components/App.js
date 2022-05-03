@@ -28,7 +28,7 @@ function App() {
         newCards.push(card)
       }
     })
-    setCards(newCards)
+    return setCards(newCards)
   }
 
   function handleEdit(data){
