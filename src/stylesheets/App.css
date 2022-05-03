@@ -3,14 +3,37 @@
   background-color: antiquewhite;
 }
 
+
+
+
+/* CARDS STYLING */
+.Cards{
+  background-color: yellow;
+}
+.card{
+  background-color: yellowgreen;
+}
+
+
+
+
+/* NAVBAR STYLING */
 .Navbar{
   background-color: aqua;
 }
 
+
+
+
+/* FORM STYLING */
 .Form{
   background-color: mediumspringgreen;
 }
 
+
+
+
+/* FOOTER STYLING */
 .Footer{
-  background-color: darksalmon;
+  background-color: rgb(117, 117, 117);
 }

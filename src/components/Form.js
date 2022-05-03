@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({onCreate}) => {
 
     const [formData, setFormData] = useState({
         id: '',
@@ -29,7 +29,7 @@ const Form = () => {
             body: JSON.stringify(formData)
         })
             .then(r => r.json())
-            .then(d => console.log(d))
+            .then(d => onCreate(d))
             .catch(e => console.log(e))
 
         e.target.reset()
