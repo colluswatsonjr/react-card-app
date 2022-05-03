@@ -23,8 +23,8 @@ function App() {
     setCards([data, ...cards])
   }
 
-  function handleEdit(){
-    console.log('edit', )
+  function handleEdit(data){
+    setEditCard(data)
   }
 
   function handleDelete(id){
@@ -46,7 +46,7 @@ function App() {
 
       <Routes>
         <Route path='/home' element={<Cards cards={cards} onEdit={handleEdit} onDelete={handleDelete}/>}/>
-        <Route path='/create' element={<Form onCreate={handleCreate}/>} />
+        <Route path='/create' element={<Form onCreate={handleCreate} editCard={editCard}/>} />
         <Route path='/extras' />
       </Routes>
 

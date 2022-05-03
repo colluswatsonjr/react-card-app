@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Card = ({ card, onEdit, onDelete }) => {
-    console.log(card)
+    let navigate = useNavigate();
+
 
     function deleteCard() {
         fetch(`http://localhost:3000/data/${card.id}`, {
@@ -7,8 +10,9 @@ const Card = ({ card, onEdit, onDelete }) => {
         })
         onDelete(card.id)
     }
-    function editCard(){
+    function editCard() {
         onEdit(card)
+        navigate(`/create`)
     }
 
     return (

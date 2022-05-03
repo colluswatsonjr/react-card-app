@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Form = ({onCreate}) => {
+const Form = ({ onCreate, editCard }) => {
 
     const [formData, setFormData] = useState({
         id: '',
@@ -8,6 +8,13 @@ const Form = ({onCreate}) => {
         content: '',
         created: new Date().toISOString().slice(0, 10)
     })
+
+    useEffect(() => {
+        setFormData(editCard)
+    }, [editCard])
+
+
+
 
     function handleChange(e) {
         let key = e.target.name
@@ -40,11 +47,11 @@ const Form = ({onCreate}) => {
         <form className="Form" onSubmit={(e) => handleSubmit(e)}>
             <label>Title:</label>
             <br />
-            <input type="text" className="title" name="title" onChange={(e) => handleChange(e)} />
+            <input type="text" className="title" name="title" onChange={(e) => handleChange(e)} value={formData.title} />
             <br /><br />
             <label>Content:</label>
             <br />
-            <textarea className="content" name="content" onChange={(e) => handleChange(e)} />
+            <textarea className="content" name="content" onChange={(e) => handleChange(e)} value={formData.content} />
             <br /><br />
             <button type="submit">Submit!</button>
         </form>
