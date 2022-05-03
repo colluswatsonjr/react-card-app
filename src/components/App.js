@@ -1,9 +1,9 @@
-import './App.css';
+import '../stylesheets/App.css';
 
 function App() {
   return (
     <div className="App">
-      Hello World!
+      This is my card app!
     </div>
   );
 }
