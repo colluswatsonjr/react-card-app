@@ -6,6 +6,6 @@
 - Add styling
 
 ## Features
-- Create blog
+- Create blog (check)
 - Edit blog
 - Delete blog
