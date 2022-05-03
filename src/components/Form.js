@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Form = ({ onCreate, editCard }) => {
+    let navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         id: '',
@@ -12,9 +14,7 @@ const Form = ({ onCreate, editCard }) => {
     useEffect(() => {
         setFormData(editCard)
     }, [editCard])
-
-
-
+    
 
     function handleChange(e) {
         let key = e.target.name
@@ -28,16 +28,31 @@ const Form = ({ onCreate, editCard }) => {
     function handleSubmit(e) {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/data`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-            .then(r => r.json())
-            .then(d => onCreate(d))
-            .catch(e => console.log(e))
+        if (formData.id) {
+            fetch(`http://localhost:3000/data/${formData.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(r => r.json())
+                .then(d => onCreate(d))
+                .catch(e => console.log(e))
+        } else {
+            fetch(`http://localhost:3000/data`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(r => r.json())
+                .then(d => onCreate(d))
+                .catch(e => console.log(e))
+
+        }
+        navigate(`/home`)
 
         e.target.reset()
     }
