@@ -17,9 +17,8 @@ const Card = ({ card, onEdit, onDelete }) => {
 
     return (
         <div className="card">
-            card
-            <div className="card_content">
-                <div className="title">
+            <div>
+                <div className="card_title">
                     {card.title}
                 </div>
                 <div className="card_content">

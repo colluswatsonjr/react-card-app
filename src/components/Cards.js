@@ -6,7 +6,6 @@ const Cards = ({ cards, onEdit, onDelete }) => {
 
     return (
         <div className="Cards">
-            Cards
             {createCards}
         </div>
     );

@@ -1,24 +1,54 @@
 .App {
-  text-align: center;
   background-color: antiquewhite;
+  text-align: center;
+  display: grid;
+  place-items: center;
 }
-
 
 
 
 /* CARDS STYLING */
-.Cards{
+.Cards {
   background-color: yellow;
-}
-.card{
-  background-color: yellowgreen;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
+.card {
+  background-color: yellowgreen;
+  border: 3px solid teal;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.card_title {
+  width: 100%;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.card_content {
+  width: 100%;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.card_created {
+  width: 100%;
+}
+
+.card_btns {
+  width: 50%;
+}
 
 
 
 /* NAVBAR STYLING */
-.Navbar{
+.Navbar {
   background-color: aqua;
 }
 
@@ -26,7 +56,7 @@
 
 
 /* FORM STYLING */
-.Form{
+.Form {
   background-color: mediumspringgreen;
 }
 
@@ -34,6 +64,6 @@
 
 
 /* FOOTER STYLING */
-.Footer{
+.Footer {
   background-color: rgb(117, 117, 117);
 }
