@@ -21,15 +21,9 @@ function App() {
   },[])
 
   function handleCreate(data){
-    const newCards = []
-    cards.filter((card)=>{
-      if(card.id === data.id){
-        newCards.push(data)
-      }else{
-        newCards.push(card)
-      }
-    })
-    return setCards(newCards)
+    const newCards = [data,...cards]
+
+    setCards(newCards)
   }
 
   function handleEdit(data){
