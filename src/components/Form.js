@@ -37,7 +37,10 @@ const Form = ({ onCreate, editCard }) => {
                 body: JSON.stringify(formData)
             })
                 .then(r => r.json())
-                .then(d => onCreate(d))
+                .then(d => {
+                    onCreate(d)
+                    navigate('/home')
+                })
                 .catch(e => console.log(e))
         } else {
             fetch(`http://localhost:3000/data`, {
@@ -48,11 +51,13 @@ const Form = ({ onCreate, editCard }) => {
                 body: JSON.stringify(formData)
             })
                 .then(r => r.json())
-                .then(d => onCreate(d))
+                .then(d => {
+                    onCreate(d)
+                    navigate('/home')
+                })
                 .catch(e => console.log(e))
 
         }
-        navigate(`/home`)
 
         e.target.reset()
     }
