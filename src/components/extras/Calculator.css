@@ -1,0 +1,32 @@
+.calculator {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 300px;
+    border: 5px solid black;
+}
+
+.display {
+    padding: 0 1em;
+    text-align: right;
+    line-height: 2em;
+    width: 100%;
+    background-color: #000;
+    min-height: 2em;
+    color: white;
+}
+
+.calc_button{  
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    width: 25%;
+    background-color: #ccc;
+    line-height: 2em;
+    border-top: 0.01em solid #333;
+    border-left: 0.01em solid #333;
+}
+
+.double{
+    width: 50%;
+}

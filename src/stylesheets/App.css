@@ -19,16 +19,17 @@
 .card {
   background-color: yellowgreen;
   border: 3px solid teal;
-  padding: 1%;
   display: flex;
   flex-direction: column;
   width: 30%;
+  padding: 1%;
 }
 
 .card_title {
   width: 100%;
   font-weight: bold;
   font-size: x-large;
+  word-break: break-all;
 }
 
 .card_content {
