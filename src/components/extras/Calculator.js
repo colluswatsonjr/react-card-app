@@ -32,7 +32,6 @@ function Calculator() {
       },750)}
     
   }
-  console.log(result)
 
   return (
     <div className="calculator">
