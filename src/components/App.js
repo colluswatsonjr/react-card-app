@@ -4,6 +4,7 @@ import '../stylesheets/App.css';
 import Navbar from './Navbar';
 import Cards from './Cards';
 import Form from './Form';
+import Extras from './Extras';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
 
@@ -55,7 +56,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<Cards cards={cards} onEdit={handleEdit} onDelete={handleDelete}/>}/>
         <Route path='/create' element={<Form onCreate={handleCreate} editCard={editCard}/>} />
-        <Route path='/extras' />
+        <Route path='/extras' element={<Extras/>} />
       </Routes>
 
       <Footer />

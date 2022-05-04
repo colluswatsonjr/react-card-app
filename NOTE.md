@@ -7,5 +7,5 @@
 
 ## Features
 - Create blog (check)
-- Edit blog
-- Delete blog
+- Edit blog (check)
+- Delete blog (check)

@@ -14,7 +14,7 @@ const Form = ({ onCreate, editCard }) => {
     useEffect(() => {
         setFormData(editCard)
     }, [editCard])
-    
+
 
     function handleChange(e) {
         let key = e.target.name
@@ -62,11 +62,11 @@ const Form = ({ onCreate, editCard }) => {
         <form className="Form" onSubmit={(e) => handleSubmit(e)}>
             <label>Title:</label>
             <br />
-            <input type="text" className="title" name="title" onChange={(e) => handleChange(e)} value={formData.title} />
+            <input type="text" maxLength='25' className="title" name="title" onChange={(e) => handleChange(e)} value={formData.title} />
             <br /><br />
             <label>Content:</label>
             <br />
-            <textarea className="content" name="content" onChange={(e) => handleChange(e)} value={formData.content} />
+            <textarea className="content" maxLength='260' rows={5} cols={50} name="content" onChange={(e) => handleChange(e)} value={formData.content} />
             <br /><br />
             <button type="submit">Submit!</button>
         </form>
