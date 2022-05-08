@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Form = ({ onCreate, editCard }) => {
+const Form = ({ onCreate }) => {
     let navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -10,10 +10,6 @@ const Form = ({ onCreate, editCard }) => {
         content: '',
         created: new Date().toISOString().slice(0, 10)
     })
-
-    useEffect(() => {
-        setFormData(editCard)
-    }, [editCard])
 
 
     function handleChange(e) {
@@ -27,39 +23,20 @@ const Form = ({ onCreate, editCard }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-
-        if (formData.id) {
-            fetch(`http://localhost:3000/data/${formData.id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-                .then(r => r.json())
-                .then(d => {
-                    onCreate(d)
-                    navigate('/home')
-                })
-                .catch(e => console.log(e))
-        } else {
-            fetch(`http://localhost:3000/data`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-                .then(r => r.json())
-                .then(d => {
-                    onCreate(d)
-                    navigate('/home')
-                })
-                .catch(e => console.log(e))
-
-        }
-
-        e.target.reset()
+        
+        fetch(`http://localhost:3000/data`,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(r=>r.json())
+        .then(d=>{
+            onCreate(d)
+            navigate('/home')
+        })
+        .catch(e=>console.log(e))
     }
 
 
