@@ -1,6 +1,6 @@
 ## Goals
 - Single page application
-- 5 components
+- 5 components (check)
 - 3 client-side routes using React Router (check)
 - Create a RESTful API
 - Add styling
