@@ -22,16 +22,16 @@ function Calculator() {
   }
   const calculate = () => {
     try{
-      setResult(Function(result).toString())
+      setResult(eval(result).toString())
       setHistory('')
     }catch{
       setResult('Error')
       setTimeout(()=>{
         setResult('')
         setHistory('')
-      },750)}
-    
+      },200)}
   }
+  console.log(result)
 
   return (
     <div className="calculator">
