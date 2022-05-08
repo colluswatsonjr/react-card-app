@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 const Card = ({ card, onEdit, onDelete }) => {
-    let navigate = useNavigate();
+        let navigate = useNavigate();
 
 
     function deleteCard() {
@@ -12,7 +12,7 @@ const Card = ({ card, onEdit, onDelete }) => {
     }
     function editCard() {
         onEdit(card)
-        navigate(`/create`)
+        navigate(`/edit`)
     }
 
     return (
