@@ -22,7 +22,7 @@ function Calculator() {
   }
   const calculate = () => {
     try{
-      setResult(eval(result).toString())
+      setResult(Function(result).toString())
       setHistory('')
     }catch{
       setResult('Error')
