@@ -1,4 +1,6 @@
+
 const Navbar = () => {
+
     return ( 
         <nav className="Navbar">
             <a href='/home'>Home</a>

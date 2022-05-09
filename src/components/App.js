@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import '../stylesheets/App.css';
+// import '../stylesheets/App.css';
 
 import Navbar from './Navbar';
 import Cards from './Cards';
@@ -7,7 +8,7 @@ import Form from './Form';
 import EditForm from './EditForm';
 import Extras from './Extras';
 import Footer from './Footer';
-import React, { useEffect, useState } from 'react';
+
 
 function App() {
   let loading = false;
@@ -46,7 +47,6 @@ function App() {
     })
     setCards(newCards)
   }
-
   function handleEdit(data) {
     setEditCard({
       id: data.id,
@@ -55,7 +55,6 @@ function App() {
       created: 'Edited:' + new Date().toISOString().slice(0, 10)
     })
   }
-
   function handleDelete(id) {
     const removeCard = cards.filter((card) => {
       if (card.id === id) {
@@ -67,13 +66,11 @@ function App() {
     setCards(removeCard)
   }
 
-
   return (
     <React.Fragment>
       {loading ? <h1>Loading...</h1> :
 
         <div className="App">
-          This is my card app!
           <Navbar />
 
           <Routes>

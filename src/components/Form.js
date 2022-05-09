@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField, Typography } from "@mui/material";
+
+
 
 const Form = ({ onCreate }) => {
+    const classes = {
+        field: {
+            marginTop: 20,
+            marginBottom: 20,
+            display: 'block'
+        }
+    }
+
     let navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -10,48 +21,68 @@ const Form = ({ onCreate }) => {
         content: '',
         created: new Date().toISOString().slice(0, 10)
     })
-
-
-    function handleChange(e) {
-        let key = e.target.name
-        const newData = {
-            ...formData,
-            [key]: e.target.value
-        }
-        setFormData(newData)
-    }
+    
+    // function handleChange(e) {
+    //     let key = e.target.name
+    //     const newData = {
+    //         ...formData,
+    //         [key]: e.target.value
+    //     }
+    //     setFormData(newData)
+    // }
 
     function handleSubmit(e) {
         e.preventDefault()
-        
-        fetch(`http://localhost:3000/data`,{
-            method:'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(r=>r.json())
-        .then(d=>{
-            onCreate(d)
-            navigate('/home')
-        })
-        .catch(e=>console.log(e))
+        console.log(formData)
+
+        // fetch(`http://localhost:3000/data`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(formData)
+        // })
+        //     .then(r => r.json())
+        //     .then(d => {
+        //         onCreate(d)
+        //         navigate('/home')
+        //     })
+        //     .catch(e => console.log(e))
     }
 
-
     return (
-        <form className="Form" onSubmit={(e) => handleSubmit(e)}>
-            <label>Title:</label>
-            <br />
-            <input type="text" maxLength='25' className="title" name="title" onChange={(e) => handleChange(e)} value={formData.title} />
-            <br /><br />
-            <label>Content:</label>
-            <br />
-            <textarea className="content" maxLength='260' rows={5} cols={50} name="content" onChange={(e) => handleChange(e)} value={formData.content} />
-            <br /><br />
-            <button type="submit">Submit!</button>
-        </form>
+        <div>
+            <Typography variant="h5" color="primary" gutterbottom="true">
+                Create Note:
+            </Typography>
+            <form autoComplete="off">
+                <TextField
+                    style={classes.field}
+                    label="Note Title"
+                    variant="standard"
+                    color="secondary"
+
+                    onChange={(e)=>setFormData({...formData, title:e.target.value})}
+
+                    fullWidth
+                    required
+                />
+                <TextField
+                    style={classes.field}
+                    label="Note Content"
+                    variant="outlined"
+                    color="secondary"
+
+                    onChange={(e)=>setFormData({...formData, content:e.target.value})}
+
+                    multiline
+                    rows={4}
+                    fullWidth
+                    required
+                />
+            </form>
+            <Button type="submit" variant="outlined" color="primary" onClick={handleSubmit}>Submit!</Button>
+        </div>
     );
 }
 
