@@ -4,7 +4,9 @@ import { Button, TextField, Typography } from "@mui/material";
 
 
 
-const Form = ({ onCreate }) => {
+const CreatePost = () => {
+    let navigate = useNavigate();
+
     const classes = {
         field: {
             marginTop: 20,
@@ -13,28 +15,15 @@ const Form = ({ onCreate }) => {
         }
     }
 
-    let navigate = useNavigate();
-
     const [formData, setFormData] = useState({
         id: '',
         title: '',
         content: '',
         created: new Date().toISOString().slice(0, 10)
     })
-    
-    // function handleChange(e) {
-    //     let key = e.target.name
-    //     const newData = {
-    //         ...formData,
-    //         [key]: e.target.value
-    //     }
-    //     setFormData(newData)
-    // }
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData)
-
         // fetch(`http://localhost:3000/data`, {
         //     method: 'POST',
         //     headers: {
@@ -85,5 +74,5 @@ const Form = ({ onCreate }) => {
         </div>
     );
 }
-
-export default Form;
+ 
+export default CreatePost;

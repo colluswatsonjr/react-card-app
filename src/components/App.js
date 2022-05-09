@@ -3,15 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 // import '../stylesheets/App.css';
 
 import Navbar from './Navbar';
-import Cards from './Cards';
+import CreatePost from './CreatePost';
+import EditPost from './EditPost';
 import Posts from './Posts';
-import Form from './Form';
-import EditForm from './EditForm';
 import Extras from './Extras';
 import Footer from './Footer';
 
-
 function App() {
+  const [editPost, setEditPost] = useState({})
+
+
   let loading = false;
   // const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([])
@@ -49,39 +50,19 @@ function App() {
     setCards(newCards)
   }
   function handleEdit(data) {
-    setEditCard({
-      id: data.id,
-      title: data.title,
-      content: data.content,
-      created: 'Edited:' + new Date().toISOString().slice(0, 10)
-    })
+    setEditPost(data)
   }
-  function handleDelete(id) {
-    const removeCard = cards.filter((card) => {
-      if (card.id === id) {
-        return false
-      } else {
-        return true
-      }
-    })
-    setCards(removeCard)
-  }
+
 
   return (
     <React.Fragment>
       {loading ? <h1>Loading...</h1> :
-
         <div className="App">
           <Navbar />
-          <Posts />
-
-          {/* <Routes>
-            <Route path='/home' element={<Cards cards={cards} onEdit={handleEdit} onDelete={handleDelete} />} />
-            <Route path='/create' element={<Form onCreate={handleNewCard} />} />
-            <Route path='/edit' element={<EditForm onCreate={handleNewEdit} editCard={editCard} />} />
-            <Route path='/extras' element={<Extras />} />
-          </Routes> */}
-
+          <CreatePost />
+          <EditPost editPost={editPost} />
+          <Posts onEdit={handleEdit}/>
+          {/* <Extras /> */}
           <Footer />
         </div>
       }
