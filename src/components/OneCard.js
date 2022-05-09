@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ card, onEdit, onDelete }) => {
+const OneCard = ({ card, onEdit, onDelete }) => {
         let navigate = useNavigate();
 
 
@@ -36,4 +36,4 @@ const Card = ({ card, onEdit, onDelete }) => {
     );
 }
 
-export default Card;
+export default OneCard;

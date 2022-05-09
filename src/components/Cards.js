@@ -1,8 +1,8 @@
-import Card from "./Card";
+import OneCard from "./OneCard";
 
 const Cards = ({ cards, onEdit, onDelete }) => {
 
-    const createCards = cards.map((card) => <Card key={card.id} card={card} onEdit={onEdit} onDelete={onDelete} />)
+    const createCards = cards.map((card) => <OneCard key={card.id} card={card} onEdit={onEdit} onDelete={onDelete} />)
 
     return (
         <div className="Cards">
