@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Cards from './Cards';
+import Posts from './Posts';
 import Form from './Form';
 import EditForm from './EditForm';
 import Extras from './Extras';
@@ -35,13 +36,13 @@ function App() {
   }, [setCards])
 
   function handleNewCard(data) {
-    setCards([data,...cards])
-  }  
+    setCards([data, ...cards])
+  }
   function handleNewEdit(data) {
-    const newCards = cards.map((card)=>{
-      if(card.id === data.id){
+    const newCards = cards.map((card) => {
+      if (card.id === data.id) {
         return data
-      }else{
+      } else {
         return card
       }
     })
@@ -72,13 +73,14 @@ function App() {
 
         <div className="App">
           <Navbar />
+          <Posts />
 
-          <Routes>
+          {/* <Routes>
             <Route path='/home' element={<Cards cards={cards} onEdit={handleEdit} onDelete={handleDelete} />} />
             <Route path='/create' element={<Form onCreate={handleNewCard} />} />
             <Route path='/edit' element={<EditForm onCreate={handleNewEdit} editCard={editCard} />} />
             <Route path='/extras' element={<Extras />} />
-          </Routes>
+          </Routes> */}
 
           <Footer />
         </div>
