@@ -50,6 +50,7 @@ const CreatePost = ({onCreate}) => {
                     color="secondary"
 
                     onChange={(e)=>setFormData({...formData, title:e.target.value})}
+                    inputProps={{maxLength :20}}
 
                     fullWidth
                     required

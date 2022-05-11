@@ -29,7 +29,7 @@ const Post = ({ post, editThis, onDelete }) => {
                 title={post.title}
             />
             <CardContent>
-                <Typography>{post.content}</Typography>
+                <Typography style={{wordBreak:'break-word'}}>{post.content}</Typography>
             </CardContent>
 
         </Card>

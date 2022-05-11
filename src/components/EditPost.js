@@ -56,6 +56,8 @@ const EditPost = ({ editPost, onEdit }) => {
                     color="secondary"
 
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+
+                    inputProps={{maxLength :20}}
                     value={formData.title}
                     fullWidth
                     required

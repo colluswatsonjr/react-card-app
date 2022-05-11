@@ -23,6 +23,7 @@ const classes = {
   },
   page: {
     paddingTop: 75,
+    height:'100vh'
   },
   foot:{
     textAlign:'center',
