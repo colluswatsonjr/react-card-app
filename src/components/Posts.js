@@ -5,7 +5,7 @@ import Post from "./Post";
 const Posts = ({ posts, editThis, onDelete }) => {
 
     const createPosts = posts.map((post) => (
-        <Grid item key={post.id} xs={12} sm={6} lg={3}>
+        <Grid item key={post.id} xs={12} sm={6} lg={4}>
             <Post post={post} editThis={editThis} onDelete={onDelete} />
         </Grid>
     ))

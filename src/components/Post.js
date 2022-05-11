@@ -27,6 +27,7 @@ const Post = ({ post, editThis, onDelete }) => {
                     </ButtonGroup>
                 }
                 title={post.title}
+                style={{wordBreak:'break-word'}}
             />
             <CardContent>
                 <Typography style={{wordBreak:'break-word'}}>{post.content}</Typography>
