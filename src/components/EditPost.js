@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 
 const classes = {
@@ -10,46 +10,42 @@ const classes = {
     }
 }
 
-const EditPost = ({ editPost }) => {
+const EditPost = ({ editPost, onEdit }) => {
+    let navigate = useNavigate()
 
-    const [formData, setFormData] = React.useState({
-        id:'',
-        title:'',
-        content:'',
-        created:''
+    const [formData, setFormData] = useState({
+        id: '',
+        title: '',
+        content: '',
+        created: ''
     })
 
-    React.useEffect(()=>{
-        setFormData({
-            id: editPost.id,
-            title: editPost.title,
-            content: editPost.content,
-            created: new Date().toISOString().slice(0, 10)
-        })
-    },[editPost])
+    useEffect(() => {
+        setFormData(editPost)
+    }, [editPost])
 
 
     function handleSubmit(e) {
         e.preventDefault()
         console.log(formData)
-        // fetch(`http://localhost:3000/data/${formData.id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // })
-        //     .then(r => r.json())
-        //     .then(d => {
-        //         onCreate(d)
-        //         // e.target.reset()
-        //     })
-        //     .catch(e => console.log(e))
-        //     navigate('/home')
+        fetch(`http://localhost:3000/data/${formData.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(r => r.json())
+            .then(d => {
+                onEdit(d)
+                navigate('/home')
+            })
+            .catch(e => console.log(e))
     }
 
+
     return (
-        <div>
+        <div className={classes.page}>
             <Typography variant="h5" color="primary" gutterbottom="true">
                 Edit Note:
             </Typography>

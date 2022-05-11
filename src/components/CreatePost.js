@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 
-
-
 const CreatePost = () => {
     let navigate = useNavigate();
 
@@ -14,29 +12,32 @@ const CreatePost = () => {
             display: 'block'
         }
     }
+}
+
+const CreatePost = ({onCreate}) => {
+    let navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        id: '',
-        title: '',
-        content: '',
+        title:'',
+        content:'',
         created: new Date().toISOString().slice(0, 10)
     })
 
     function handleSubmit(e) {
         e.preventDefault()
-        // fetch(`http://localhost:3000/data`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // })
-        //     .then(r => r.json())
-        //     .then(d => {
-        //         onCreate(d)
-        //         navigate('/home')
-        //     })
-        //     .catch(e => console.log(e))
+        fetch(`http://localhost:3000/data`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(r => r.json())
+            .then(data => {
+                onCreate(data)
+                navigate('/home')
+            })
+            .catch(e => console.log(e))
     }
 
     return (

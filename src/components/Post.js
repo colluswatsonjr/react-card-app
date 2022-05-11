@@ -1,34 +1,36 @@
 import { DeleteOutlined } from "@mui/icons-material";
-import { Button, ButtonGroup, Card, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import { ButtonGroup, Card, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Post = ({ post, onEditPost, onDeletePost }) => {
+const Post = ({ post, editThis, onDelete }) => { 
+    let navigate = useNavigate()
 
-    function handleEdit(post){
-        onEditPost(post)
+    function deleteThis(id){
+        fetch(`http://localhost:3000/data/${id}`, {
+            method: 'DELETE'
+          })
+          onDelete(id)
     }
-
-    function handleDelete(id) {
-        // fetch(`http://localhost:3000/data/${id}`, {
-        //     method: 'DELETE'
-        // })
-        onDeletePost(id)
-    }
+ 
     return (
         <Card>
             <CardHeader
                 action={
-                    <IconButton><DeleteOutlined /></IconButton>
+                    <ButtonGroup>
+                        <IconButton onClick={() => {
+                            editThis(post)
+                            navigate('/edit')
+                            }}><EditIcon /></IconButton>
+                        <IconButton onClick={() => deleteThis(post.id)}><DeleteOutlined /></IconButton>
+                    </ButtonGroup>
                 }
                 title={post.title}
             />
             <CardContent>
                 <Typography>{post.content}</Typography>
             </CardContent>
-            <ButtonGroup>
-                <Button onClick={() => handleEdit(post)}>Edit!</Button>
-                <Button onClick={() => handleDelete(post.id)}>Delete!</Button>
-            </ButtonGroup>
 
         </Card>
     );
