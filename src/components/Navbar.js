@@ -1,37 +1,53 @@
 import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 
 import { Link } from "react-router-dom";
 
 const classes = {
-    
+    navbar: {
+        display:'flex',
+        flexDirection:'row'
+
+    },logo:{
+        width:'auto'
+    },
+    links: {
+        width:'40%',
+        display:'flex',
+        flexDirection:'row'
+    },
+    link: {
+        textAlign:'center',
+        padding:5,
+        textDecoration:'none',
+        fontWeight:'bold',
+        flexGrow:1
+    }
 }
 
 
 function Navbar() {
 
-  return (
-    <AppBar variant='sticky'>
-      <Toolbar>
-        <Typography variant="h3" className={"nav_logo"}>
-          MySite
-        </Typography>
-          <div  className='nav_links'>
-            <Link to="/home" variant='h2' className='nav_link'>
-              Home
-            </Link>
-            <Link to="/create" className='nav_link'>
-              Create
-            </Link>
-            <Link to="/edit" className='nav_link'>
-              Edit
-            </Link>
-            <Link to="/extras" className='nav_link'>
-              Extras
-            </Link>
-          </div>
-      </Toolbar>
-    </AppBar>
-  );
+    return (
+        // <AppBar variant='sticky'>
+            <Box style={classes.navbar}>
+                <Typography variant="h3" style={classes.logo}>
+                    MySite
+                </Typography>
+                <Box style={classes.links}>
+                    <Link to="/home" style={classes.link}>
+                        <Typography variant="h5" style={classes.text}>Home</Typography>
+                    </Link>
+                    <Link to="/create" style={classes.link}>
+                        <Typography variant="h5" style={classes.text}>Create</Typography>
+                    </Link>
+                    <Link to="/extras" style={classes.link}>
+                        <Typography variant="h5" style={classes.text}>Extras</Typography>
+                    </Link>
+                </Box>
+            </Box>
+        // </AppBar>
+    );
 }
 export default Navbar;

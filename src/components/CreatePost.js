@@ -2,17 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 
-const CreatePost = () => {
-    let navigate = useNavigate();
-
     const classes = {
         field: {
-            marginTop: 20,
+            marginTop: 10,
             marginBottom: 20,
             display: 'block'
         }
     }
-}
+
 
 const CreatePost = ({onCreate}) => {
     let navigate = useNavigate()

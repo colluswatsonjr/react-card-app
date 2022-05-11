@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
-import '../stylesheets/App.css';
+import { Route, Routes } from 'react-router-dom';
+// import '../stylesheets/App.css';
 
 import Navbar from './Navbar';
 import CreatePost from './CreatePost';
@@ -8,17 +8,30 @@ import EditPost from './EditPost';
 import Posts from './Posts';
 import Extras from './Extras';
 import Footer from './Footer';
-import { Switch } from '@mui/material';
-import Post from './Post';
 import { Box } from '@mui/system';
 
+const classes = {
+  whole: {
+    marginTop: 10,
+    marginBottom: 20,
+    display: 'flex',
+    flexDirection:'column'
+    
+  },
+  head:{ 
 
-
+  },
+  page: {
+    paddingTop: 75,
+  },
+  foot:{
+    textAlign:'center',
+    width:'100%'
+  }
+}
 
 function App() {
-  const classes = {
 
-  }
 
   const [posts, setPosts] = useState([])
   const [editPost, setEditPost] = useState({})
@@ -60,26 +73,11 @@ function App() {
 
   return (
 
-    <div className='whole'>
-      <div className='top'>
+    <Box  style={classes.whole}>
+      <Box style={classes.head}>
         <Navbar />
-      </div>
-      {/* <div>
-        <Switch>
-          <Route path='/home'>
-            <Posts posts={posts} editThis={(data) => { setEditPost(data) }} onDelete={handleDelete} />
-          </Route>
-          <Route path='/create'>
-            <CreatePost onCreate={handleCreate} />
-          </Route>
-          <Route path='/edit'>
-            <EditPost editPost={editPost} onEdit={handleEdit} />
-          </Route>
-          <Route path='/extras'>
-            <Extras />
-          </Route>
-        </Switch>
-      </div> */}
+      </Box>
+
       <Box style={classes.page}>
         <Routes>
           <Route path='/home' element={<Posts posts={posts} editThis={(data) => { setEditPost(data) }} onDelete={handleDelete} />} />
@@ -88,11 +86,11 @@ function App() {
           <Route path='/extras' element={<Extras />} />
         </Routes>
       </Box>
-
-      <div className='bottom'>
+      <Box style={classes.foot}>
         <Footer />
-      </div>
-    </div>
+      </Box>
+
+    </Box>
 
   );
 }
