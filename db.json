@@ -1,22 +1,3 @@
 {
-  "data": [
-    {
-      "title": "AAAAAAAAAA",
-      "content": "",
-      "created": "2022-05-11",
-      "id": 1
-    },
-    {
-      "title": "AAAAAAAAAA",
-      "content": "",
-      "created": "2022-05-11",
-      "id": 2
-    },
-    {
-      "title": "",
-      "content": "",
-      "created": "2022-05-11",
-      "id": 3
-    }
-  ]
+  "data": []
 }

@@ -1,7 +1,17 @@
 ## Goals
 - Single page application
 - 5 components (check)
-- 3 client-side routes using React Router (check)
+    - CreatePost
+    - EditPost
+    - Posts
+    - Post
+    - Extras
+    - Footer
+- 3 client-side routes using
+    - home
+    - create
+    - extras
+- React Router (check)
 - Create a RESTful API (check)
 - Add styling (check)
 
