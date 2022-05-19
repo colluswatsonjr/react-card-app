@@ -1,3 +1,16 @@
 {
-  "data": []
+  "data": [
+    {
+      "title": "Note Title",
+      "content": "Note Content...",
+      "created": "2022-05-16",
+      "id": 1
+    },
+    {
+      "title": "How was your day....",
+      "content": "My day was well, after getting off of work i went to the park!",
+      "created": "2022-05-16",
+      "id": 2
+    }
+  ]
 }

@@ -32,7 +32,7 @@ const CreatePost = ({onCreate}) => {
             .then(r => r.json())
             .then(data => {
                 onCreate(data)
-                navigate('/home')
+                navigate('/')
             })
             .catch(e => console.log(e))
     }
@@ -50,7 +50,7 @@ const CreatePost = ({onCreate}) => {
                     color="secondary"
 
                     onChange={(e)=>setFormData({...formData, title:e.target.value})}
-                    inputProps={{maxLength :15}}
+                    inputProps={{maxLength :20}}
 
                     fullWidth
                     required

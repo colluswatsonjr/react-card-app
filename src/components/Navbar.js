@@ -26,7 +26,6 @@ const classes = {
     }
 }
 
-
 function Navbar() {
 
     return (
@@ -36,14 +35,14 @@ function Navbar() {
                     MySite
                 </Typography>
                 <Box style={classes.links}>
-                    <Link to="/home" style={classes.link}>
+                    <Link to="/" style={classes.link}>
                         <Typography variant="h5" style={classes.text}>Home</Typography>
                     </Link>
                     <Link to="/create" style={classes.link}>
                         <Typography variant="h5" style={classes.text}>Create</Typography>
                     </Link>
-                    <Link to="/extras" style={classes.link}>
-                        <Typography variant="h5" style={classes.text}>Extras</Typography>
+                    <Link to="/about" style={classes.link}>
+                        <Typography variant="h5" style={classes.text}>About</Typography>
                     </Link>
                 </Box>
             </Box>

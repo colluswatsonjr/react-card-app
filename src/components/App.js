@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import CreatePost from './CreatePost';
 import EditPost from './EditPost';
 import Posts from './Posts';
-import Extras from './Extras';
+import About from './About';
 import Footer from './Footer';
 import { Box } from '@mui/system';
 
@@ -33,7 +33,6 @@ const classes = {
 
 function App() {
 
-
   const [posts, setPosts] = useState([])
   const [editPost, setEditPost] = useState({})
 
@@ -42,11 +41,12 @@ function App() {
       .then(r => r.json())
       .then(d => setPosts(d.sort((a, b) => a.created - b.created ? 1 : -1)))
       .catch(e => console.log(e))
-  }, [setPosts])
+  }, [])
 
   function handleCreate(data) {
     setPosts([data, ...posts])
   }
+
   function handleEdit(data) {
     const newPost = posts.map((post) => {
       if (post.id === data.id) {
@@ -55,7 +55,6 @@ function App() {
         return post
       }
     })
-
     setPosts(newPost)
   }
 
@@ -67,7 +66,6 @@ function App() {
         return true
       }
     })
-
     setPosts(removePost)
   }
 
@@ -81,10 +79,10 @@ function App() {
 
       <Box style={classes.page}>
         <Routes>
-          <Route path='/home' element={<Posts posts={posts} editThis={(data) => { setEditPost(data) }} onDelete={handleDelete} />} />
+          <Route path='/' element={<Posts posts={posts} editThis={(data) => { setEditPost(data) }} onDelete={handleDelete} />} />
           <Route path='/create' element={<CreatePost onCreate={handleCreate} />} />
           <Route path='/edit' element={<EditPost editPost={editPost} onEdit={handleEdit} />} />
-          <Route path='/extras' element={<Extras />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </Box>
       <Box style={classes.foot}>

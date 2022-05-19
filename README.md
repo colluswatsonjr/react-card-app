@@ -17,10 +17,10 @@ YouTube:
 ---
 
 Create Card:
-![Alt Text](photos/create.gif)
+![Alt Text](src/photos/create.gif)
 Edit Card:
-![Alt Text](photos/edit.gif)
+![Alt Text](src/photos/edit.gif)
 Delete Card:
-![Alt Text](photos/delete.gif)
+![Alt Text](src/photos/delete.gif)
 Extras:
-![Alt Text](photos/extras.gif)
+![Alt Text](src/photos/extras.gif)

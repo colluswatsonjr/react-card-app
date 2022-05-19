@@ -38,7 +38,7 @@ const EditPost = ({ editPost, onEdit }) => {
             .then(r => r.json())
             .then(d => {
                 onEdit(d)
-                navigate('/home')
+                navigate('/')
             })
             .catch(e => console.log(e))
     }
@@ -57,7 +57,7 @@ const EditPost = ({ editPost, onEdit }) => {
 
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
 
-                    inputProps={{maxLength :15}}
+                    inputProps={{maxLength :20}}
                     value={formData.title}
                     fullWidth
                     required
