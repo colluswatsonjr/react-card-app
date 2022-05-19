@@ -4,6 +4,9 @@ import submit from '../photos/submit.png'
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 const classes = {
+    page:{
+        height:'100%'
+    },
     image: {
         width: '50%',
         height:'100%'
@@ -33,7 +36,7 @@ const About = () => {
                     <img style={classes.image} src={content}/>
                     <br/>
 
-                    Sumbit!
+                    Submit!
                     <br/>
 
                     <img style={classes.image} src={submit}/>

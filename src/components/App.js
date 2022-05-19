@@ -15,7 +15,7 @@ const classes = {
     marginTop: 10,
     marginBottom: 20,
     display: 'flex',
-    flexDirection:'column'
+    flexDirection:'column',
     
   },
   head:{ 
@@ -23,11 +23,12 @@ const classes = {
   },
   page: {
     paddingTop: 75,
-    height:'100vh'
+    height:'auto'
   },
   foot:{
     textAlign:'center',
-    width:'100%'
+    width:'100%',
+    marginTop:'auto'
   }
 }
 
